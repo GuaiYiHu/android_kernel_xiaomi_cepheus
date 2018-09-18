@@ -362,6 +362,7 @@ struct fts_ts_info {
 	bool p_sensor_switch;
 	bool palm_sensor_changed;
 	bool palm_sensor_switch;
+	struct proc_dir_entry *input_proc;
 };
 
 struct fts_mode_switch {
