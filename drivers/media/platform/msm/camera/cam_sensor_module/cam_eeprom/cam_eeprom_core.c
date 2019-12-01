@@ -304,7 +304,14 @@ int32_t cam_eeprom_parse_read_memory_map(struct device_node *of_node,
 	}
 	rc = cam_eeprom_read_memory(e_ctrl, &e_ctrl->cal_data);
 	if (rc) {
-		CAM_ERR(CAM_EEPROM, "read_eeprom_memory failed");
+		CAM_ERR(CAM_EEPROM,
+				"read_eeprom_memory failed, rc = %d", rc);
+			cam_destroy_device_hdl(e_ctrl->bridge_intf.device_hdl);
+			CAM_ERR(CAM_EEPROM, "destroying the device hdl");
+
+			e_ctrl->bridge_intf.device_hdl = -1;
+			e_ctrl->bridge_intf.link_hdl = -1;
+			e_ctrl->bridge_intf.session_hdl = -1;
 		goto power_down;
 	}
 
@@ -321,7 +328,7 @@ data_mem_free:
 	vfree(e_ctrl->cal_data.map);
 	e_ctrl->cal_data.num_data = 0;
 	e_ctrl->cal_data.num_map = 0;
-	e_ctrl->cam_eeprom_state = CAM_EEPROM_ACQUIRE;
+	e_ctrl->cam_eeprom_state = CAM_EEPROM_INIT;
 	return rc;
 }
 
