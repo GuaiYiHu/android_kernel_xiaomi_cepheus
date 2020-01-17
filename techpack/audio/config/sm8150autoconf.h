@@ -1,5 +1,4 @@
 /* Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
- * Copyright (C) 2019 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -57,5 +56,4 @@
 #define CONFIG_TAS2557_CODEC 1
 #define CONFIG_TAS2557_MISC 1
 #define CONFIG_SND_SOC_CS35L41 1
-#define CONFIG_SND_SOC_TFA9874 1
 #define CONFIG_MSM_CSPL 1

@@ -1,6 +1,5 @@
 /*
 Copyright (c) 2017, 2019 The Linux Foundation. All rights reserved.
-Copyright (C) 2019 XiaoMi, Inc.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2 and
@@ -37,11 +36,6 @@ int msm_mdf_init(void);
 void msm_mdf_exit(void);
 #else
 int elliptic_driver_init(void);
-/* for mius start */
-#ifdef CONFIG_US_PROXIMITY
-int mius_driver_init(void);
-#endif
-/* for mius end */
 static inline int msm_mdf_init(void)
 {
 	return 0;
@@ -82,11 +76,6 @@ void afe_exit(void);
 void adm_exit(void);
 void adsp_err_exit(void);
 int elliptic_driver_exit(void);
-/* for mius start */
-#ifdef CONFIG_US_PROXIMITY
-int mius_driver_exit(void);
-#endif
-/* for mius end */
 
 #ifdef CONFIG_VOICE_MHI
 int voice_mhi_init(void);
